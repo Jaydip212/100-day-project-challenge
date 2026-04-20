@@ -1,0 +1,56 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.speaker-container {
+    text-align: center;
+}
+
+.speaker {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto 20px;
+}
+
+.speaker::before,
+.speaker::after {
+    content: '';
+    position: absolute;
+    background-color: #3498db;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.speaker::before {
+    top: -10px;
+    left: 20px;
+}
+
+.speaker::after {
+    top: -10px;
+    right: 20px;
+}
+
+#colorButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #2ecc71;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#colorButton:hover {
+    background-color: #27ae60;
+}

@@ -1,0 +1,40 @@
+/* Previous styles */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .builder-section, .preview-section {
+        padding: 1rem;
+    }
+
+    input, textarea {
+        font-size: 14px;
+    }
+}
+
+/* Skill Entry Styles */
+.skill-entry {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.remove-skill {
+    background: #e74c3c !important;
+    padding: 0 0.5rem !important;
+}
+
+/* Form Validation */
+input:invalid, textarea:invalid {
+    border-color: #e74c3c;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}

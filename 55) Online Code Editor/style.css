@@ -1,0 +1,434 @@
+/* Base theme (dark) */
+:root {
+    --bg-primary: #111827;
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #374151;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --border-color: #404040;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+/* Light theme variables */
+:root[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f3f4f6;
+    --bg-tertiary: #e5e7eb;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --border-color: #d1d5db;
+    --accent-color: #3b82f6;
+    --accent-hover: #2563eb;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transition: all 0.3s ease;
+}
+
+#code-editor, 
+.editor-container,
+.ai-chat-container {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.language-btn,
+.ai-btn {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.language-btn:hover,
+.ai-btn:hover {
+    opacity: 0.9;
+}
+
+.language-btn.active {
+    background-color: #3b82f6;
+    color: white;
+}
+
+#chat-input {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.message {
+    margin-bottom: 1rem;
+    max-width: 85%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.message.temporary {
+    opacity: 0.7;
+}
+
+.message-actions {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.message:hover .message-actions {
+    opacity: 1;
+}
+
+.user-message {
+    margin-left: auto;
+}
+
+.system-message {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.ai-message {
+    margin-right: auto;
+}
+
+.message .p-3 {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+#settings-modal {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.settings-modal-content {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+#api-key {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+#preview {
+    background-color: white;
+    border: 1px solid var(--border-color);
+}
+
+#code-editor::-webkit-scrollbar {
+    width: 12px;
+}
+
+#code-editor::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+#code-editor::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 6px;
+    border: 3px solid #1f2937;
+}
+
+#chat-messages {
+    scrollbar-width: thin;
+    scrollbar-color: #4b5563 #1f2937;
+}
+
+#chat-messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background-color: #4b5563;
+    border-radius: 4px;
+}
+
+/* AI Assistant Styles */
+.code-block {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.copy-btn,
+.insert-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.copy-btn:hover,
+.insert-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* Code suggestions */
+.suggestion-box {
+    position: absolute;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestion-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.suggestion-item:hover {
+    background-color: var(--border-color);
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.toast.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.toast.error {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.toast.warning {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+/* Loading indicator */
+.thinking {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.thinking::after {
+    content: "...";
+    animation: thinking 1.5s infinite;
+}
+
+@keyframes thinking {
+    0% { content: "."; }
+    33% { content: ".."; }
+    66% { content: "..."; }
+}
+
+/* Auth Forms */
+.auth-input {
+    transition: all 0.3s ease;
+}
+
+.auth-input:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Editor Styles */
+.editor-wrapper {
+    position: relative;
+}
+
+#code-editor {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Fira Code', monospace;
+    line-height: 1.6;
+    tab-size: 4;
+    transition: all 0.3s ease;
+}
+
+#code-editor:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+.language-tab {
+    transition: all 0.3s ease;
+}
+
+.language-tab:hover {
+    transform: translateY(-2px);
+}
+
+.language-tab.active {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Preview Frame */
+#preview-frame {
+    border: none;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Loading Spinner */
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--bg-tertiary);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .language-tabs {
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+    }
+}
+
+/* Theme Toggle */
+.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-tertiary);
+    border-radius: 4px;
+    border: 2px solid var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-color);
+}
+
+/* Auth Container Styles */
+#auth-container {
+    animation: fadeIn 0.5s ease;
+}
+
+/* Editor Container Styles */
+#editor-container {
+    animation: slideIn 0.5s ease;
+}
+
+/* Button Styles */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip Styles */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}

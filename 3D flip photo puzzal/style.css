@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+}
+
+.puzzle-container {
+    width: 300px;
+    height: 300px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+    gap: 2px;
+    background: #000;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-image: url('mayur 1.jpeg'); /* अपनी इमेज का नाम सही करो */
+    background-size: 300px 300px;
+    cursor: grab;
+    border: 1px solid #fff;
+}
+
+.tile:active {
+    cursor: grabbing;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Previous head content -->
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.3/dist/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/openai@3.0.0/browser/openai.min.js"></script>
+</head>
+<body>
+    <div class="builder-section">
+        <!-- Previous form elements -->
+
+        <!-- Education Section -->
+        <div class="form-group">
+            <label>Education</label>
+            <div id="educationFields">
+                <div class="education-entry">
+                    <input type="text" placeholder="Degree" class="degree">
+                    <input type="text" placeholder="University" class="university">
+                    <input type="text" placeholder="Years" class="years">
+                </div>
+            </div>
+            <button onclick="addEducationField()">+ Add Education</button>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="form-group">
+            <label>Skills</label>
+            <div id="skillsContainer">
+                <div class="skill-entry">
+                    <input type="text" placeholder="Skill" class="skill">
+                    <button class="remove-skill" onclick="removeSkill(this)">×</button>
+                </div>
+            </div>
+            <button onclick="addSkillField()">+ Add Skill</button>
+            <div class="ai-suggestion" onclick="generateSkillSuggestions()">
+                💡 Get AI Skill Suggestions
+            </div>
+        </div>
+
+        <!-- Certifications Section -->
+        <div class="form-group">
+            <label>Certifications</label>
+            <div id="certificationFields">
+                <div class="certification-entry">
+                    <input type="text" placeholder="Certification Name">
+                    <input type="text" placeholder="Issuing Organization">
+                </div>
+            </div>
+            <button onclick="addCertificationField()">+ Add Certification</button>
+        </div>
+    </div>
+
+    <!-- Updated Preview Section -->
+    <div class="preview-section">
+        <div class="resume-preview" id="resumePreview">
+            <!-- Previous preview content -->
+            <div class="resume-section">
+                <h3 class="section-title">Education</h3>
+                <div id="previewEducation"></div>
+            </div>
+            <div class="resume-section">
+                <h3 class="section-title">Skills</h3>
+                <div id="previewSkills"></div>
+            </div>
+            <div class="resume-section">
+                <h3 class="section-title">Certifications</h3>
+                <div id="previewCertifications"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Code Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Consider adding Ace/CodeMirror/Monaco CSS here -->
+</head>
+<body>
+    <div class="editor-container">
+        <div class="controls">
+            <label for="language">Language:</label>
+            <select id="language">
+                <!-- Client-side runnable -->
+                <option value="javascript">JavaScript</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS (Preview)</option>
+                <!-- Backend required -->
+                <option value="python">Python</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="java">Java</option>
+                <option value="php">PHP</option>
+                <option value="ruby">Ruby</option>
+                <option value="go">Go</option>
+                <!-- Add many more as supported by your backend/API -->
+            </select>
+            <button id="run-button">Run ▶</button>
+            <span id="status-indicator" style="margin-left: auto;">Ready</span> <!-- Optional status -->
+        </div>
+
+        <div class="panels">
+            <div class="panel code-panel">
+                <h3>Code Input</h3>
+                <!-- Replace textarea with Ace/CodeMirror/Monaco div if using -->
+                <textarea id="code-input" spellcheck="false" placeholder="Enter your code here..."></textarea>
+            </div>
+            <div class="panel output-panel">
+                <h3>Output / Preview</h3>
+                <div id="output-area">
+                    <pre id="text-output" class="output-content"></pre>
+                    <iframe id="html-preview" class="output-content" sandbox="allow-scripts allow-same-origin"></iframe>
+                </div>
+             </div>
+        </div>
+    </div>
+
+    <!-- Consider adding Ace/CodeMirror/Monaco JS here -->
+    <script src="script.js"></script>
+</body>
+</html>

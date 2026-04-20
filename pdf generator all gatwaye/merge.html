@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDF - ❤️ PDF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <!-- Logo -->
+                <a href="index.html" class="logo">❤️ PDF</a>
+                
+                <!-- Navigation Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="merge.html">Merge PDF</a></li>
+                    <li><a href="split.html">Split PDF</a></li>
+                    <li><a href="compress.html">Compress PDF</a></li>
+                    <li><a href="convert.html">Convert PDF</a></li>
+                    <li><a href="edit.html">Edit PDF</a></li>
+                    <li><a href="index.html#all-tools">All Tools</a></li>
+                </ul>
+                
+                <!-- Auth Buttons -->
+                <div class="nav-auth">
+                    <a href="login.html" class="btn-outline">Login</a>
+                    <a href="signup.html" class="btn-primary">Sign up</a>
+                </div>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Page Content -->
+    <section class="tool-page">
+        <div class="container">
+            <!-- Breadcrumbs -->
+            <nav class="breadcrumbs fade-in">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>Merge PDF</span>
+            </nav>
+
+            <!-- Tool Header -->
+            <div class="tool-header fade-in">
+                <div class="tool-icon-large">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <h1>Merge PDF Files</h1>
+                <p class="tool-subtitle">Combine multiple PDF documents into one file</p>
+                <p class="tool-description">Select multiple PDF files and merge them in seconds. Maintain the quality while creating a single, organized document.</p>
+            </div>
+
+            <!-- Upload Section -->
+            <div class="upload-section fade-in">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3>Drop PDF files here</h3>
+                    <p>or click to browse from your device</p>
+                    <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+                    <button class="btn-upload" id="selectFilesBtn">
+                        <i class="fas fa-file-pdf"></i> Select PDF Files
+                    </button>
+                    <p class="upload-note">Maximum file size: 50MB per file</p>
+                </div>
+
+                <!-- File List (Initially Hidden) -->
+                <div class="file-list" id="fileList" style="display: none;">
+                    <div class="file-list-header">
+                        <h3>Selected Files (<span id="fileCount">0</span>)</h3>
+                        <button class="btn-clear" id="clearBtn">
+                            <i class="fas fa-times"></i> Clear All
+                        </button>
+                    </div>
+                    <div class="files-container" id="filesContainer"></div>
+                    <div class="action-buttons">
+                        <button class="btn-secondary" id="addMoreBtn">
+                            <i class="fas fa-plus"></i> Add More Files
+                        </button>
+                        <button class="btn-primary btn-large" id="mergeBtn">
+                            <i class="fas fa-check"></i> Merge PDFs
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Processing State (Initially Hidden) -->
+                <div class="processing-state" id="processingState" style="display: none;">
+                    <div class="processing-animation">
+                        <div class="spinner"></div>
+                    </div>
+                    <h3>Merging your PDFs...</h3>
+                    <p>Please wait while we combine your files</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">0%</p>
+                </div>
+
+                <!-- Success State (Initially Hidden) -->
+                <div class="success-state" id="successState" style="display: none;">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Success! Your PDF is ready</h3>
+                    <p>Your files have been merged successfully</p>
+                    <div class="success-actions">
+                        <button class="btn-primary btn-large" id="downloadBtn">
+                            <i class="fas fa-download"></i> Download Merged PDF
+                        </button>
+                        <button class="btn-secondary" id="mergeAnotherBtn">
+                            <i class="fas fa-redo"></i> Merge Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works Section -->
+            <div class="how-it-works fade-in">
+                <h2>How to Merge PDF Files</h2>
+                <div class="steps-grid">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h3>Select Files</h3>
+                        <p>Choose the PDF files you want to merge from your device.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h3>Arrange Order</h3>
+                        <p>Drag and drop to arrange files in your preferred order.</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h3>Merge & Download</h3>
+                        <p>Click merge and download your combined PDF file.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About</a>
+                    <span class="separator">•</span>
+                    <a href="#">Privacy</a>
+                    <span class="separator">•</span>
+                    <a href="#">Terms</a>
+                    <span class="separator">•</span>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="copyright">© 2025 ❤️ PDF. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

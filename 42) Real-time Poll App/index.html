@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Real-time Poll App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-time Poll App</h1>
+        
+        <div class="create-poll-section">
+            <h2>Create New Poll</h2>
+            <input type="text" id="question" placeholder="Enter your question">
+            <div id="options-container">
+                <input type="text" class="option-input" placeholder="Option 1">
+                <input type="text" class="option-input" placeholder="Option 2">
+            </div>
+            <button id="add-option">Add Option</button>
+            <button id="create-poll">Create Poll</button>
+        </div>
+
+        <div class="active-poll-section">
+            <h2>Active Poll</h2>
+            <div id="active-poll">
+                <p class="no-poll-message">No active poll</p>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <h2>Results</h2>
+            <div id="poll-results"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

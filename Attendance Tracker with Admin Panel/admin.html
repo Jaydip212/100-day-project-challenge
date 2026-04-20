@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Attendance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js "></script>
+</head>
+<body>
+  <div class="container">
+    <span class="logout-btn" onclick="logout()">Logout</span>
+
+    <h1>📊 Admin Dashboard</h1>
+
+    <!-- Dark Mode Toggle -->
+    <label class="switch">
+      <input type="checkbox" id="darkModeToggle">
+      <span class="slider"></span>
+    </label>
+
+    <!-- Add Student -->
+    <h2>Add Student</h2>
+    <input type="text" id="new-student" placeholder="Student Name" />
+    <button onclick="addStudent()">Add Student</button>
+
+    <!-- Student List -->
+    <h2>Student List</h2>
+    <input type="text" id="search-student" placeholder="Search by name..." oninput="searchStudent()" />
+    <ul id="student-list"></ul>
+
+    <!-- Date-wise Attendance -->
+    <h2>Mark Attendance</h2>
+    <input type="date" id="attendance-date" />
+    <button onclick="markPresent()">Present</button>
+    <button onclick="markAbsent()">Absent</button>
+
+    <!-- Export -->
+    <h2>Export Data</h2>
+    <button onclick="exportToCSV()">Export to CSV</button>
+
+    <!-- Chart -->
+    <canvas id="attendanceChart" width="400" height="150"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

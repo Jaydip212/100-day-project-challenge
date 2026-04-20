@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAYDIP Travels - Aapka Best Travel Partner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons (For services, why choose us, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts (Optional - for better typography) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">Jaydip Travels</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+             <!-- Mobile Menu Toggle (Optional, needs JS/CSS to function) -->
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Apni Dream Vacation Book Kara Aatach!</h1>
+                <p>Duniya explore kara, sabse acchi deals aani  support ke saath.</p>
+                <form id="search-form" class="search-form">
+                    <div class="form-group">
+                        <label for="destination"><i class="fas fa-map-marker-alt"></i> Kahan Jana Hai?</label>
+                        <input type="text" id="destination" placeholder="e.g., Paris, Goa, Manali" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkin"><i class="fas fa-calendar-alt"></i> Check-in Date</label>
+                        <input type="date" id="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout"><i class="fas fa-calendar-alt"></i> Check-out Date</label>
+                        <input type="date" id="checkout" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests"><i class="fas fa-users"></i> Kitne Log?</label>
+                        <input type="number" id="guests" min="1" value="1" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Popular Destinations Section -->
+        <section id="destinations" class="destinations section-padding">
+            <h2>Popular Destinations</h2>
+            <div class="destination-grid">
+                <div class="destination-card fade-in">
+                    <img src="images/destination-1.jpg" alt="Destination 1">
+                    <div class="card-content">
+                    <h3>kedarnath , Uttarakhand </h3>
+                        <p>The city of lights and romance.</p>
+                        <a href="#" class="btn btn-secondary">Explore</a>
+                    </div>
+                </div>
+                <div class="destination-card fade-in">
+                    <img src="images/destination-2.jpg" alt="Destination 2">
+                     <div class="card-content">
+                        <h3>Bali, Indonesia</h3>
+                        <p>Tropical paradise with stunning beaches.</p>
+                        <a href="#" class="btn btn-secondary">Explore</a>
+                    </div>
+                </div>
+                <div class="destination-card fade-in">
+                    <img src="images/destination-3.jpg" alt="Destination 3">
+                     <div class="card-content">
+                        <h3>Rome, Italy</h3>
+                        <p>Explore ancient history and culture.</p>
+                        <a href="#" class="btn btn-secondary">Explore</a>
+                    </div>
+                </div>
+                <!-- Add more destination cards here -->
+            </div>
+        </section>
+
+         <!-- Promotions/Offers Section -->
+         <section id="offers" class="offers section-padding bg-light">
+            <h2>Exclusive Offers & Deals</h2>
+            <div class="offers-grid">
+                <div class="offer-card fade-in">
+                    <img src="images/offer-1.jpg" alt="Offer 1">
+                     <div class="card-content">
+                        <h3>Monsoon Special - 20% Off Goa!</h3>
+                        <p>Book your Goa trip now and save big.</p>
+                        <a href="#" class="btn btn-primary">View Deal</a>
+                    </div>
+                </div>
+                 <div class="offer-card fade-in">
+                    <img src="images/offer-2.jpg" alt="Offer 2">
+                     <div class="card-content">
+                        <h3>Early Bird Europe Packages</h3>
+                        <p>Plan your European adventure early for discounts.</p>
+                        <a href="#" class="btn btn-primary">View Deal</a>
+                    </div>
+                </div>
+                 <div class="offer-card fade-in">
+                    <img src="images/offer-3.jpg" alt="Offer 3">
+                     <div class="card-content">
+                        <h3>Weekend Getaway - Flat ₹1000 Off</h3>
+                        <p>Short trips made affordable.</p>
+                        <a href="#" class="btn btn-primary">View Deal</a>
+                    </div>
+                </div>
+                <!-- Add more offer cards here -->
+            </div>
+         </section>
+
+
+        <!-- Why Choose Us Section -->
+        <section id="why-us" class="why-us section-padding">
+            <h2>Why Book With Awesome Travels?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item fade-in">
+                    <i class="fas fa-tags"></i>
+                    <h3>Best Price Guarantee</h3>
+                    <p>Find the lowest prices for flights & hotels.</p>
+                </div>
+                <div class="why-us-item fade-in">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trusted Partners</h3>
+                    <p>We work with reliable airlines & hotels.</p>
+                </div>
+                 <div class="why-us-item fade-in">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Customer Support</h3>
+                    <p>We are always here to help you, any time.</p>
+                </div>
+                 <div class="why-us-item fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Booking</h3>
+                    <p>Your data and payment details are safe with us.</p>
+                </div>
+            </div>
+        </section>
+
+         <!-- Testimonials Section -->
+         <section id="testimonials" class="testimonials section-padding bg-light">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item fade-in">
+                    <p>"Jaydip Travels made booking my trip to Shimla so easy! Great prices and excellent support."</p>
+                    <div class="customer-info">
+                        <img src="images/testimonial-avatar.png" alt="Customer Avatar">
+                        <h4>Sujit Gade</h4>
+                    </div>
+                </div>
+                 <div class="testimonial-item fade-in">
+                    <p>"Had a fantastic experience booking my flight and hotel through them. Highly recommended!"</p>
+                    <div class="customer-info">
+                         <img src="images/testimonial-avatar.png" alt="Customer Avatar">
+                        <h4>Akash wani</h4>
+                    </div>
+                </div>
+                 <div class="testimonial-item fade-in">
+                    <p>"Smooth booking process and found the best deal for my international trip."</p>
+                    <div class="customer-info">
+                         <img src="images/testimonial-avatar.png" alt="Customer Avatar">
+                        <h4>mayur tawade</h4>
+                    </div>
+                </div>
+                <!-- Add more testimonials -->
+            </div>
+         </section>
+
+         <!-- Newsletter Section -->
+         <section id="newsletter" class="newsletter section-padding">
+             <h2>Subscribe for Travel Deals!</h2>
+             <p>Don't miss out on exclusive offers and travel tips.</p>
+             <form id="newsletter-form" class="newsletter-form">
+                 <input type="email" id="newsletter-email" placeholder="Enter your email address" required>
+                 <button type="submit" class="btn btn-primary">Subscribe</button>
+             </form>
+         </section>
+
+
+         <!-- Contact Section (Basic Placeholder) -->
+        <section id="contact" class="contact section-padding bg-light">
+             <h2>Get In Touch</h2>
+             <p>Koi sawaal hai? Humein contact karein!</p>
+             <p><i class="fas fa-envelope"></i> Email: support@jaydiptravels.com</p>
+             <p><i class="fas fa-phone-alt"></i> Phone: +91 8855843841</p>
+             <!-- Add a simple contact form placeholder if needed -->
+             <!-- <form class="contact-form">
+                 <input type="text" placeholder="Your Name">
+                 <input type="email" placeholder="Your Email">
+                 <textarea placeholder="Your Message"></textarea>
+                 <button type="submit" class="btn btn-primary">Send Message</button>
+             </form> -->
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 jaydip Travels. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

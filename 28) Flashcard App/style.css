@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(45deg, #ff416c,rgba(255, 43, 89, 0.08));
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+}
+
+button {
+    background-color: #fff;
+    color: #ff4b2b;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+#flashcards-container {
+    margin-top: 20px;
+}
+
+.flashcard {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 300px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.flashcard p {
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#add-flashcard-form {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.41);
+    border-radius: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}

@@ -1,0 +1,402 @@
+:root {
+    /* Deeper, more spiritual color palette */
+    --primary-color: #f57c00; /* Deep Orange */
+    --secondary-color: #ffb300; /* Amber Gold */
+    --tertiary-color: #4a148c; /* Deep Purple - for contrast/highlight */
+    --background-light: #fff9c4; /* Light Yellow */
+    --background-medium: #ffecb3; /* Medium Yellow */
+    --text-color: #424242; /* Dark Grey */
+    --heading-color: #e65100; /* Very Deep Orange */
+    --card-background: #ffffff; /* White */
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --border-color: #ffcc80; /* Light Orange */
+}
+
+/* --- IMPORTANT: Background Animation Container --- */
+#particles-js {
+    position: fixed; /* Fix it to the viewport */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* CRITICAL: Keep it behind everything else */
+}
+
+body {
+    font-family: 'Noto Sans Marathi', sans-serif;
+    /* We remove the gradient from the body itself because particles-js will handle it */
+    background-color: var(--background-light); /* Fallback color */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.8;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+    position: relative; 
+}
+
+.page-wrapper {
+    padding: 0;
+}
+
+.container {
+    max-width: 900px; /* Wider container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Add horizontal padding */
+}
+
+/* --- Hero Section Style --- */
+.hero-section {
+    /* Make the background slightly transparent to see particles behind */
+    background: linear-gradient(135deg, rgba(245, 124, 0, 0.95), rgba(255, 179, 0, 0.9)); /* Slightly transparent */
+    color: #ffffff; /* White text */
+    padding: 80px 20px; /* More padding */
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden; /* Hide anything outside */
+}
+
+.hero-section h1 {
+    color: #ffffff;
+    font-size: 3.5em; /* Larger heading */
+    margin: 0 0 10px 0;
+    font-family: 'Caveat', cursive;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .subtitle {
+    color: #ffe0b2; /* Lighter gold */
+    font-size: 1.6em;
+    margin: 0 0 30px 0;
+    font-family: 'Lora', serif; /* Different font for subtitle */
+}
+
+.hero-image-container {
+    width: 250px; /* Size of the hero image */
+    height: 250px;
+    margin: 30px auto 0 auto;
+    border-radius: 50%; /* Make it round */
+    overflow: hidden;
+    border: 8px solid rgba(255, 255, 255, 0.5); /* Semi-transparent white border */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    position: relative; /* For potential pseudo-elements or effects */
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the container */
+    transition: transform 0.5s ease-in-out;
+}
+.hero-image-container:hover .hero-image {
+    transform: scale(1.1); /* Zoom on hover */
+}
+
+/* --- General Section Styles --- */
+section {
+    margin-bottom: 50px;
+    padding: 40px 0; /* Padding top/bottom */
+    text-align: center;
+    position: relative; /* For absolute positioning if needed */
+}
+
+section:nth-of-type(odd) { /* Alternate section background for a card-like effect */
+     background-color: rgba(255, 255, 255, 0.9); /* More opaque white */
+     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+     border-radius: 10px;
+     margin: 30px auto; /* Center the card-like sections */
+     max-width: 850px; /* Limit width for card effect */
+     padding: 40px 30px;
+}
+
+section:nth-of-type(even) { /* Alternate section background for a full-width feel */
+     background-color: rgba(255, 245, 220, 0.85); /* More opaque yellow */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      padding: 40px 20px; /* Full width padding */
+}
+
+
+h2, h3 {
+    color: var(--heading-color);
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after, h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-family: 'Lora', serif;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    font-family: 'Lora', serif;
+}
+
+p {
+    font-size: 1.15em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: justify;
+    text-align-last: center;
+    max-width: 800px; /* Limit paragraph width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Guru Intro Specific Styles --- */
+.guru-info-card {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.95); /* Almost fully opaque for readability */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+}
+
+.guru-info-card .card-image {
+    flex-shrink: 0;
+    width: 200px; /* Image size */
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px; /* Slightly rounded */
+    border: 5px solid var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.guru-info-card .card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.guru-info-card .card-text {
+    flex-grow: 1;
+}
+
+.guru-info-card .card-text h2 {
+    margin-top: 0;
+    text-align: left;
+    padding-bottom: 10px;
+}
+.guru-info-card .card-text h2::after {
+     left: 0; /* Align line to the left */
+     transform: translateX(0);
+}
+
+.guru-info-card .card-text p {
+    text-align: left; /* Align paragraph left */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* --- Message Section Specific Styles --- */
+.message-section p {
+     max-width: 800px; /* Limit width */
+}
+
+.highlight-text {
+    color: var(--tertiary-color); /* Deep Purple highlight */
+    font-weight: 700;
+    font-size: 1.2em;
+    font-family: 'Caveat', cursive;
+}
+
+/* --- Mantra Section Specific Styles --- */
+.mantra-section {
+     background-color: rgba(255, 249, 196, 0.9); /* More opaque */
+     padding: 30px 20px;
+     border-radius: 10px;
+     border: 2px dashed var(--border-color);
+     margin: 40px auto;
+     max-width: 700px; /* Slightly narrower for mantras */
+}
+
+.mantra-list {
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.mantra-list .mantra-item {
+    font-size: 1.4em; /* Larger mantra text */
+    font-weight: 700;
+    color: var(--heading-color);
+    margin: 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-family: 'Lora', serif; /* Different font for mantras */
+}
+
+.mantra-list .mantra-item i {
+    color: var(--tertiary-color); /* Icon color */
+    font-size: 1.5em;
+}
+
+.mantra-note {
+    font-size: 1em;
+    color: #757575;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* --- Blessing Section Specific Styles --- */
+.blessing-section .closing-line {
+    font-size: 1.5em; /* Larger */
+    font-weight: 700;
+    color: var(--tertiary-color); /* Deep Purple */
+    margin-top: 35px;
+    margin-bottom: 25px;
+    font-family: 'Caveat', cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.blessing-section .closing-line i {
+    color: var(--secondary-color); /* Gold stars */
+    margin: 0 8px;
+}
+
+.blessing-section .krutadnya {
+    font-size: 1.2em;
+    color: #616161;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* --- Footer Style --- */
+footer {
+    margin-top: 50px;
+    padding: 25px 20px;
+    border-top: 1px solid #eeeeee;
+    font-size: 0.9em;
+    color: #9e9e9e;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent footer */
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 15px;
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .hero-section .subtitle {
+        font-size: 1.3em;
+    }
+    .hero-image-container {
+        width: 180px;
+        height: 180px;
+    }
+
+    section {
+         margin-bottom: 30px;
+         padding: 30px 0;
+    }
+
+    section:nth-of-type(odd),
+    section:nth-of-type(even) {
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+        text-align: center; /* Center text on smaller screens */
+        text-align-last: unset;
+    }
+
+    .guru-info-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px;
+    }
+     .guru-info-card .card-image {
+        width: 150px;
+        height: 150px;
+     }
+    .guru-info-card .card-text h2 {
+        text-align: center;
+    }
+    .guru-info-card .card-text h2::after {
+         left: 50%;
+         transform: translateX(-50%); /* Center the line */
+    }
+    .guru-info-card .card-text p {
+         text-align: center;
+    }
+
+    .mantra-list .mantra-item {
+        font-size: 1.2em;
+        flex-direction: column; /* Stack icon and text on mobile */
+        gap: 5px;
+    }
+    .mantra-list .mantra-item i {
+         font-size: 1.3em;
+         margin-right: 0;
+    }
+
+    .blessing-section .closing-line {
+        font-size: 1.3em;
+    }
+    .blessing-section .krutadnya {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+     .hero-section h1 {
+        font-size: 2em;
+     }
+      .hero-section .subtitle {
+        font-size: 1.1em;
+     }
+      .hero-image-container {
+        width: 150px;
+        height: 150px;
+     }
+     h2 {
+        font-size: 1.6em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+    .mantra-list .mantra-item {
+         font-size: 1.1em;
+    }
+    .blessing-section .closing-line {
+        font-size: 1.1em;
+    }
+}

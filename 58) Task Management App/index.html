@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Nebula - A Visual Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="nebula-container">
+
+        <header class="nebula-header">
+            <h1><i class="fas fa-meteor"></i> Task Nebula</h1>
+            <p>Visualize your tasks floating in the cosmos.</p>
+        </header>
+
+        <form id="task-form">
+            <div class="input-wrapper">
+                <input type="text" id="task-input" placeholder="Launch a new task orb..." autocomplete="off" required>
+                <button type="submit" id="add-task-btn" title="Launch Task">
+                    <i class="fas fa-rocket"></i>
+                </button>
+            </div>
+        </form>
+
+        <div id="task-cluster" class="task-cluster">
+            <!-- Task Orbs will be dynamically added here -->
+            <!-- Example Orb Structure (for reference):
+            <div class="task-orb" style="--orb-color: #ff5722;">
+                 <div class="orb-glow"></div>
+                 <span class="task-text">My Example Task</span>
+                 <div class="orb-actions">
+                      <button class="complete-btn"><i class="fas fa-check"></i></button>
+                      <button class="delete-btn"><i class="fas fa-times"></i></button>
+                 </div>
+            </div>
+             -->
+        </div>
+         <p id="no-tasks-msg" class="hidden">The nebula is empty. Launch your first task!</p>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

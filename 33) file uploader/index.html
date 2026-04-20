@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern File Uploader</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-box" id="dropZone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h2>Drag & Drop Files</h2>
+            <p>or</p>
+            <!--jaydip_0113_official-->
+            <button class="browse-btn">Browse Files</button>
+            <input type="file" hidden multiple id="fileInput">
+        </div>
+        <div class="file-list" id="fileList">
+            <h3>Uploaded Files</h3>
+            <div class="files" id="files"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

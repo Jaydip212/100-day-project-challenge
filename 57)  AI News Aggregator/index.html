@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Aggregator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Optional: Add Font Awesome for icons (if desired later) -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+</head>
+<body>
+    <header>
+        <h1>AI News Feed</h1>
+        <div class="controls">
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Search AI topics...">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+             <div class="sort-container">
+                <label for="sort-by">Sort By:</label>
+                <select id="sort-by">
+                    <option value="publishedAt" selected>Newest</option>
+                    <option value="relevance">Relevance</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+            </div>
+            <button id="theme-toggle">Toggle Dark Mode</button>
+        </div>
+         <div class="topic-buttons" id="topic-buttons">
+             <button class="topic-btn active" data-topic="Artificial Intelligence OR Machine Learning OR LLM OR OpenAI OR DeepMind">General AI</button>
+             <button class="topic-btn" data-topic="Large Language Model OR GPT OR LLM">LLMs / GPT</button>
+             <button class="topic-btn" data-topic="Computer Vision OR Image Recognition">Computer Vision</button>
+             <button class="topic-btn" data-topic="AI Ethics OR Responsible AI">AI Ethics</button>
+             <button class="topic-btn" data-topic="Robotics AND AI">Robotics</button>
+         </div>
+    </header>
+
+    <main>
+        <div class="results-info" id="results-info" style="display: none;"></div>
+        <div id="news-container">
+            <div class="loading" id="loading-indicator">Loading AI news...</div>
+            <div class="error-message" id="error-message" style="display: none;"></div>
+            <!-- News articles will be loaded here -->
+        </div>
+        <div class="load-more-container">
+             <button id="load-more-btn" style="display: none;">Load More Articles</button>
+        </div>
+    </main>
+
+
+    <footer>
+        <p>Powered by <a href="https://jaydipjadhav.liveweb.in/" target="_blank" rel="noopener noreferrer">jaydipjadhav.liveweb.in</a></p>
+        <p>© <span id="current-year"></span> JAYDIP JADHAV/JJ FOUNDATION</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

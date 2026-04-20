@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--jaydip_0113_official-->
+    <title>Image Filters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Image Filters</h1>
+        <div class="upload-container">
+            <input type="file" id="imageInput" accept="image/*" class="hidden">
+            <label for="imageInput" class="upload-btn">Choose an Image</label>
+        </div>
+        <div class="image-container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="filters">
+            <button onclick="applyFilter('normal')" class="filter-btn">Normal</button>
+            <button onclick="applyFilter('grayscale')" class="filter-btn">Grayscale</button>
+            <button onclick="applyFilter('sepia')" class="filter-btn">Sepia</button>
+            <button onclick="applyFilter('invert')" class="filter-btn">Invert</button>
+            <button onclick="applyFilter('saturate')" class="filter-btn">Saturate</button>
+            <button onclick="applyFilter('blur')" class="filter-btn">Blur</button>
+            <button onclick="applyFilter('brightness')" class="filter-btn">Brightness</button>
+            <button onclick="applyFilter('contrast')" class="filter-btn">Contrast</button>
+        </div>
+        <button id="downloadBtn" class="download-btn" disabled>Download Image</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

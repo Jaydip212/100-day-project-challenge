@@ -1,0 +1,102 @@
+/* ... (Keep previous styles for Glitch, Cursors, Scrollbar, Matrix) ... */
+
+/* -- Network Log Styling -- */
+#network-log p {
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Add ellipsis if too long */
+    line-height: 1.2;
+    /* Add some color variety potentially */
+}
+#network-log .inbound { color: #67e8f9; } /* Cyan for inbound */
+#network-log .outbound { color: #facc15; } /* Yellow for outbound */
+
+/* -- Progress Bar Styling -- */
+.progress-bar-container {
+    background-color: #2a2a2a; /* Darker gray */
+    border: 1px solid #444;
+    padding: 2px;
+    height: 20px; /* Adjust height */
+    position: relative;
+}
+
+.progress-bar-fill {
+    background-color: #39FF14; /* Neon Green */
+    height: 100%;
+    width: 0%; /* Starts at 0 */
+    transition: width 0.3s ease-out; /* Smooth transition */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #050505; /* Dark text on bar */
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.progress-bar-label {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    color: #ccc; /* Lighter gray label */
+    z-index: 1; /* Above the fill bar potentially */
+     mix-blend-mode: difference; /* Try different blend modes */
+}
+
+
+/* -- File Explorer Styling -- */
+#file-explorer ul {
+    padding-left: 1rem; /* Indentation */
+    margin-left: 0.5rem;
+    border-left: 1px dashed #444; /* Visual connector */
+}
+#file-explorer li {
+    cursor: pointer; /* Indicate clickable */
+    list-style: none; /* Remove default bullets */
+    position: relative;
+    padding-left: 1.2em; /* Space for icon */
+}
+#file-explorer li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.4em; /* Adjust vertical alignment */
+    font-family: monospace; /* Ensure consistent icon spacing */
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+}
+#file-explorer .folder::before {
+    content: '[+]'; /* Collapsed folder */
+    color: #facc15; /* Yellow */
+}
+#file-explorer .folder.open::before {
+    content: '[-]'; /* Expanded folder */
+    color: #facc15;
+}
+#file-explorer .file::before {
+    content: '>'; /* File icon */
+    color: #67e8f9; /* Cyan */
+}
+#file-explorer .file {
+    color: #a3a3a3; /* File names slightly dimmer */
+}
+#file-explorer .folder > span:hover,
+#file-explorer .file > span:hover {
+    color: #39FF14; /* Highlight on hover */
+    text-decoration: underline;
+}
+/* Hide children of collapsed folders */
+#file-explorer .folder:not(.open) > ul {
+    display: none;
+}
+
+/* Make terminal taller on larger screens */
+@media (min-width: 768px) {
+    #terminal-output {
+        height: 70vh;
+        max-height: 800px;
+    }
+}

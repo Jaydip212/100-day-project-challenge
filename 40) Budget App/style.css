@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    text-align: center;
+}
+
+.container {
+    width: 350px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #333;
+}
+
+.transactions {
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f8f8f8;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+li.income {
+    color: green;
+}
+
+li.expense {
+    color: red;
+}
+
+.add-transaction input {
+    width: 80%;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+button {
+    padding: 8px;
+    background: #ff7e5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

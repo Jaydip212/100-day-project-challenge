@@ -1,0 +1,348 @@
+/* --- Global Styles & Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --nebula-bg: #0f0c29; /* fallback */
+    --nebula-bg-gradient: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+    --orb-glow-color: rgba(255, 255, 255, 0.6);
+    --text-color: #e0e0e0;
+    --accent-color: #00d9ff;
+    --completed-opacity: 0.4;
+    --orb-size: 130px; /* Base size */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--nebula-bg);
+    background-image: var(--nebula-bg-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow: hidden; /* Prevent scrollbars from body */
+}
+
+/* --- Main Container --- */
+.nebula-container {
+    width: 100%;
+    max-width: 900px;
+    height: 90vh; /* Limit height */
+    max-height: 700px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Header --- */
+.nebula-header {
+    text-align: center;
+    margin-bottom: 25px;
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.nebula-header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2em;
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+.nebula-header h1 i {
+    color: var(--accent-color);
+    margin-right: 10px;
+    animation: pulseIcon 2s infinite ease-in-out;
+}
+.nebula-header p {
+    font-size: 1em;
+    color: #bbb;
+    margin-top: 5px;
+}
+
+@keyframes pulseIcon {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+/* --- Input Form --- */
+#task-form {
+    margin-bottom: 25px;
+    flex-shrink: 0; /* Prevent form from shrinking */
+}
+
+.input-wrapper {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 50px; /* Pill shape */
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+     box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+}
+
+
+#task-input {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: var(--text-color);
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+#task-input::placeholder {
+    color: #888;
+}
+
+#add-task-btn {
+    background: var(--accent-color);
+    border: none;
+    color: var(--nebula-bg);
+    font-size: 1.2em;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#add-task-btn:hover {
+    background-color: #00bfff; /* Lighter accent */
+    transform: scale(1.1) rotate(15deg);
+}
+#add-task-btn:active {
+    transform: scale(1);
+}
+
+
+/* --- Task Cluster (Orb Container) --- */
+.task-cluster {
+    flex-grow: 1; /* Takes remaining space */
+    display: flex;
+    flex-wrap: wrap; /* Allows orbs to wrap */
+    gap: 25px; /* Space between orbs */
+    padding: 20px;
+    justify-content: center; /* Center orbs horizontally */
+    align-content: flex-start; /* Align wrapped lines to the top */
+    overflow-y: auto; /* Scroll if needed */
+    position: relative; /* For absolute positioning of elements inside */
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1); /* Slightly different bg for cluster area */
+}
+
+/* Custom Scrollbar for Task Cluster */
+.task-cluster::-webkit-scrollbar {
+  width: 8px;
+}
+.task-cluster::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+.task-cluster::-webkit-scrollbar-thumb {
+  background: rgba(0, 217, 255, 0.5);
+  border-radius: 10px;
+}
+.task-cluster::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 217, 255, 0.8);
+}
+
+/* --- Task Orb --- */
+.task-orb {
+    width: var(--orb-size);
+    height: var(--orb-size);
+    background: radial-gradient(circle, lighten(var(--orb-color), 15%), var(--orb-color));
+    border-radius: 50%;
+    position: relative; /* Context for pseudo-elements and actions */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                opacity 0.5s ease,
+                box-shadow 0.3s ease;
+    box-shadow: 0 0 15px -5px var(--orb-color),
+                inset 0 0 10px rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: 400;
+    font-size: 0.9em;
+    word-break: break-word;
+    overflow: hidden; /* Hide overflowing text/actions initially */
+    opacity: 1;
+    transform: scale(1);
+    /* Animation for appearing */
+    animation: spawnOrb 0.6s ease-out forwards;
+}
+
+@keyframes spawnOrb {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+
+/* Orb Glow Effect */
+.orb-glow {
+    position: absolute;
+    top: -10%; left: -10%;
+    width: 120%; height: 120%;
+    background: radial-gradient(circle, rgba(255,255,255,0) 40%, var(--orb-color) 70%, transparent 80%);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: -1; /* Behind the main orb content */
+    animation: subtlePulse 3s infinite ease-in-out;
+    pointer-events: none; /* Don't interfere with clicks */
+}
+
+@keyframes subtlePulse {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+.task-orb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px 0px var(--orb-color),
+                inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+.task-orb:hover .orb-glow {
+    opacity: 0.5;
+}
+
+
+/* Task Text inside Orb */
+.task-text {
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+
+/* Orb Actions (hidden by default) */
+.orb-actions {
+    position: absolute;
+    bottom: 10px; /* Position actions at the bottom */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0; /* Hidden */
+    transform: translateY(10px); /* Start slightly lower */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* Above text */
+}
+
+.task-orb:hover .task-text {
+    opacity: 0.7; /* Dim text slightly when actions show */
+}
+
+.task-orb:hover .orb-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.orb-actions button {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 0.9em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.orb-actions button:hover {
+    transform: scale(1.15);
+}
+
+.orb-actions .complete-btn:hover { background-color: #2ecc71; }
+.orb-actions .delete-btn:hover { background-color: #e74c3c; }
+
+/* --- Completed Orb Styling --- */
+.task-orb.completed {
+    opacity: var(--completed-opacity);
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5); /* Inner shadow */
+    background: radial-gradient(circle, #666, #444); /* Greyed out */
+}
+
+.task-orb.completed .orb-glow {
+    display: none; /* No glow when completed */
+}
+
+.task-orb.completed .task-text {
+    text-decoration: line-through;
+    color: #aaa;
+    opacity: 1; /* Make text fully visible again */
+}
+
+/* Change complete icon when completed */
+.task-orb.completed .complete-btn i::before {
+    content: "\f0e2"; /* Font Awesome undo icon */
+}
+
+/* --- Deleting Orb Animation --- */
+.task-orb.deleting {
+    animation: implodeOrb 0.5s ease-in forwards;
+}
+@keyframes implodeOrb {
+    0% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0) rotate(360deg); opacity: 0; }
+}
+
+
+/* --- No Tasks Message --- */
+#no-tasks-msg {
+    text-align: center;
+    color: #888;
+    margin-top: 40px;
+    font-size: 1.1em;
+    position: absolute; /* Center in the cluster area */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+    :root { --orb-size: 110px; }
+    .nebula-header h1 { font-size: 1.8em; }
+    .task-cluster { gap: 15px; padding: 15px; }
+}
+
+@media (max-width: 480px) {
+    :root { --orb-size: 90px; }
+    .nebula-container { padding: 15px; height: 95vh; }
+    .nebula-header h1 { font-size: 1.6em; }
+    .nebula-header p { font-size: 0.9em; }
+    #task-input { padding: 8px 15px; font-size: 0.9em;}
+    #add-task-btn { width: 40px; height: 40px; font-size: 1em; }
+    .task-orb { font-size: 0.8em; padding: 10px;}
+    .orb-actions { bottom: 5px; gap: 10px; }
+    .orb-actions button { width: 25px; height: 25px; font-size: 0.8em;}
+    #no-tasks-msg { font-size: 1em; }
+}
